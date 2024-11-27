@@ -60,14 +60,14 @@ const Navbar = () => {
               </div>
               {isShow && (
                 <div className="flex flex-col gap-2 pl-4">
-                  <NavLink className="hover:text-green-500">
+                  <NavLink to='/village-product' className="hover:text-green-500">
                     Pure village products
                   </NavLink>
-                  <NavLink className="hover:text-green-500">Sweets</NavLink>
-                  <NavLink className="hover:text-green-500">Fruits</NavLink>
-                  <NavLink className="hover:text-green-500">Vegetable</NavLink>
-                  <NavLink className="hover:text-green-500">Ritual</NavLink>
-                  <NavLink className="hover:text-green-500">Store</NavLink>
+                  <NavLink to='/sweets' className="hover:text-green-500">Sweets</NavLink>
+                  <NavLink to='/fruits' className="hover:text-green-500">Fruits</NavLink>
+                  <NavLink to='/vegetables' className="hover:text-green-500">Vegetables</NavLink>
+                  <NavLink to='/rituals' className="hover:text-green-500">Rituals</NavLink>
+                  <NavLink to='/store' className="hover:text-green-500">Store</NavLink>
                 </div>
               )}
             </div>
@@ -104,14 +104,14 @@ const Navbar = () => {
           </NavLink>
           <div className="absolute w-52 p-2 rounded-lg hidden shadow-lg bg-white group-hover:block z-50">
             <div className="flex flex-col">
-              <NavLink className="hover:text-green-500">
+              <NavLink to='/village-product' className="hover:text-green-500">
                 Pure village products
               </NavLink>
-              <NavLink className="hover:text-green-500">Sweets</NavLink>
-              <NavLink className="hover:text-green-500">Fruits</NavLink>
-              <NavLink className="hover:text-green-500">Vegetable</NavLink>
-              <NavLink className="hover:text-green-500">Ritual</NavLink>
-              <NavLink className="hover:text-green-500">Store</NavLink>
+              <NavLink to='/sweets' className="hover:text-green-500">Sweets</NavLink>
+              <NavLink to='/fruits' className="hover:text-green-500">Fruits</NavLink>
+              <NavLink to='/vegetables' className="hover:text-green-500">Vegetable</NavLink>
+              <NavLink to='/rituals' className="hover:text-green-500">Ritual</NavLink>
+              <NavLink to='/store' className="hover:text-green-500">Store</NavLink>
             </div>
           </div>
         </div>

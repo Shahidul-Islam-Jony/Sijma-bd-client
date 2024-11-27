@@ -1,35 +1,79 @@
 import { Link, NavLink } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { IoHomeOutline } from "react-icons/io5";
+import { TbCategory } from "react-icons/tb";
+import { GoPeople } from "react-icons/go";
+import { IoIosContact } from "react-icons/io";
 import { useState } from "react";
 
 const Navbar = () => {
-    const [isOpen,setIsOpen] = useState(false);
-    console.log(isOpen);
+  const [isOpen, setIsOpen] = useState(false);
+  // console.log(isOpen);
+  const [isShow, setIsShow] = useState(false);
   return (
     <div className="flex justify-between items-center border-2 border-b-green-500 shadow-lg rounded-lg p-2">
-      <div className="flex items-center gap-2">
-        {/* For mobile view */}
+      <div className="flex items-center gap-2 relative">
+        {/* mobile view icon */}
         <div className="md:hidden">
-          {
-            isOpen?<IoMdCloseCircleOutline onClick={()=>setIsOpen(false)} className="text-3xl"/>:<IoMenu onClick={()=>setIsOpen(true)} className="text-3xl"/>
-          }
+          {isOpen ? (
+            <IoMdCloseCircleOutline
+              onClick={() => setIsOpen(false)}
+              className="text-3xl"
+            />
+          ) : (
+            <IoMenu onClick={() => setIsOpen(true)} className="text-3xl" />
+          )}
         </div>
         {/* For logo */}
         <div className="w-12 h-12 md:w-16 md:h-16">
-        <Link to="/">
-          <img src="logo.png" className="rounded-full" alt="sijma_logo" />
-        </Link>
+          <Link to="/">
+            <img src="logo.png" className="rounded-full" alt="sijma_logo" />
+          </Link>
         </div>
+
+
+
+
+        {/* Link For mobile view */}
+        {isOpen && (
+          <div className="flex flex-col gap-2 font-semibold text-xl absolute top-14 bg-gray-200 w-40 p-4">
+            <NavLink to="/" className="hover:text-green-500 flex items-center gap-1">
+            <IoHomeOutline /> Home
+            </NavLink>
+            <div className="relative group">
+              <div onClick={() => setIsShow(!isShow)} className={isShow?'text-green-500 flex items-center gap-1':''} ><TbCategory /> All Category</div>
+              {isShow && (
+                <div className="flex flex-col gap-2 pl-4">
+                  <NavLink className="hover:text-green-500 flex items-center gap-1">Test1</NavLink>
+                  <NavLink className="hover:text-green-500 flex items-center gap-1">Test1</NavLink>
+                  <NavLink className="hover:text-green-500 flex items-center gap-1">Test1</NavLink>
+                </div>
+              )}
+            </div>
+            <NavLink to="/about" className="hover:text-green-500 flex items-center gap-1">
+            <GoPeople /> About Us
+            </NavLink>
+            <NavLink to="/contact" className="hover:text-green-500 flex items-center gap-1">
+            <IoIosContact /> Contact Us
+            </NavLink>
+          </div>
+        )}
       </div>
-      {/* For Link */}
+
+
+
+
+
+
+      {/* Link For Desktop and Tab View */}
       <div className="hidden md:flex flex-row gap-4 font-semibold text-xl">
-        <NavLink to="/" className="hover:text-green-500">
-          Home
+        <NavLink to="/" className="hover:text-green-500 flex items-center gap-1">
+        <IoHomeOutline /> Home
         </NavLink>
         <div className="relative group">
-          <NavLink to="/category" className="hover:text-green-500">
-            All Category
+          <NavLink to="/category" className="hover:text-green-500 flex items-center gap-1">
+          <TbCategory /> All Category
           </NavLink>
           <div className="absolute w-full p-2 rounded-lg hidden shadow-lg bg-white group-hover:block z-50">
             <div className="flex flex-col">
@@ -39,11 +83,11 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <NavLink to="/about" className="hover:text-green-500">
-          About Us
+        <NavLink to="/about" className="hover:text-green-500 flex items-center gap-1">
+        <GoPeople /> About Us
         </NavLink>
-        <NavLink to="/contact" className="hover:text-green-500">
-          Contact Us
+        <NavLink to="/contact" className="hover:text-green-500 flex items-center gap-1">
+        <IoIosContact /> Contact Us
         </NavLink>
       </div>
       {/* For user or Login */}
@@ -53,4 +97,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

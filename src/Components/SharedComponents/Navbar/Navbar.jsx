@@ -37,7 +37,7 @@ const Navbar = () => {
 
         {/* Link For mobile view */}
         {isOpen && (
-          <div className="flex flex-col gap-2 font-semibold text-xl absolute top-14 bg-gray-200 w-60 p-4">
+          <div className="flex flex-col gap-2 font-semibold text-xl absolute top-14 w-60 p-4  bg-white/10 backdrop-blur-md border border-white/40">
             <NavLink
               to="/"
               className="hover:text-green-500 flex items-center gap-2"
@@ -105,10 +105,10 @@ const Navbar = () => {
           <div className="absolute w-56 p-2 bg-white/20 backdrop-blur-md border border-white/40 rounded-lg hidden shadow-lg group-hover:block z-50">
           {/* className="p-8 bg-white/30 backdrop-blur-md rounded-lg border border-white/50 shadow-lg" */}
             <div className="flex flex-col">
-              <NavLink to='/village-product' className="hover:text-green-500">
+              <NavLink to='/village-product' className="hover:bg-white/20 hover:backdrop-blur-md hover:border hover:border-white/40 hover:rounded-md hover:p-1">
                 Pure village products
               </NavLink>
-              <NavLink to='/sweets' className="hover:text-green-500">Sweets</NavLink>
+              <NavLink to='/sweets' className="hover:bg-white/20 hover:backdrop-blur-md hover:border hover:border-white/40 hover:rounded-md hover:p-1">Sweets</NavLink>
               <NavLink to='/fruits' className="hover:text-green-500">Fruits</NavLink>
               <NavLink to='/vegetables' className="hover:text-green-500">Vegetable</NavLink>
               <NavLink to='/rituals' className="hover:text-green-500">Ritual</NavLink>

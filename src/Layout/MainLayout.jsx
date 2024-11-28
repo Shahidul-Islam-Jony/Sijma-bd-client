@@ -5,7 +5,7 @@ import Footer from "../Components/SharedComponents/Footer/Footer";
 
 const MainLayout = () => {
     return (
-        <div className="w-[98%] mx-auto">
+        <div className="w-full mx-auto">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>   

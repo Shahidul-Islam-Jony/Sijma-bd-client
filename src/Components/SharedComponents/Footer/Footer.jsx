@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-gradient-to-r from-pink-500 from-10% via-sky-500 via-30% to-violet-500 to-90% p-5">
-      <div className="flex flex-col ml-8 gap-5 md:ml-0 md:gap-0 md:flex-row justify-around">
+    <div className="bg-[#0E1725] p-5">
+      <div className="flex flex-col ml-8 gap-5 md:ml-0 md:gap-0 md:flex-row justify-around text-white">
         <div className="w-32">
           <img src="footer-logo.png" alt="footer logo || Sijma" />
         </div>

@@ -15,7 +15,7 @@ const Navbar = () => {
   // console.log(isOpen);
   const [isShow, setIsShow] = useState(false);
   return (
-    <div className="flex justify-between items-center border-2 border-b-green-500 shadow-lg rounded-lg p-2">
+    <div className="absolute z-50 w-[98%] mx-auto flex justify-between items-center rounded-lg pt-4 p-2">
       <div className="flex items-center gap-2 relative">
         {/* mobile view icon */}
         <div className="md:hidden">
@@ -102,7 +102,8 @@ const Navbar = () => {
           >
             <TbCategory /> All Category
           </NavLink>
-          <div className="absolute w-52 p-2 rounded-lg hidden shadow-lg bg-white group-hover:block z-50">
+          <div className="absolute w-56 p-2 bg-white/20 backdrop-blur-md border border-white/40 rounded-lg hidden shadow-lg group-hover:block z-50">
+          {/* className="p-8 bg-white/30 backdrop-blur-md rounded-lg border border-white/50 shadow-lg" */}
             <div className="flex flex-col">
               <NavLink to='/village-product' className="hover:text-green-500">
                 Pure village products

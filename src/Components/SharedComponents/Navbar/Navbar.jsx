@@ -12,10 +12,10 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   console.log(user);
-  const [isOpen, setIsOpen] = useState(false);
-  // console.log(isOpen);
+  const [isOpen, setIsOpen] = useState(false); // For Mobile view menu icon navigation
+  const [isClick,setIsClick] = useState(false); // For userIcon navigation open
   const [isShow, setIsShow] = useState(false);
   return (
     <div className="absolute z-50 w-[98%] mx-auto flex justify-between items-center rounded-lg pt-4 p-2">
@@ -63,14 +63,27 @@ const Navbar = () => {
               </div>
               {isShow && (
                 <div className="flex flex-col gap-2 pl-4">
-                  <NavLink to='/village-product' className="hover:text-green-500">
+                  <NavLink
+                    to="/village-product"
+                    className="hover:text-green-500"
+                  >
                     Pure village products
                   </NavLink>
-                  <NavLink to='/sweets' className="hover:text-green-500">Sweets</NavLink>
-                  <NavLink to='/fruits' className="hover:text-green-500">Fruits</NavLink>
-                  <NavLink to='/vegetables' className="hover:text-green-500">Vegetables</NavLink>
-                  <NavLink to='/rituals' className="hover:text-green-500">Rituals</NavLink>
-                  <NavLink to='/store' className="hover:text-green-500">Store</NavLink>
+                  <NavLink to="/sweets" className="hover:text-green-500">
+                    Sweets
+                  </NavLink>
+                  <NavLink to="/fruits" className="hover:text-green-500">
+                    Fruits
+                  </NavLink>
+                  <NavLink to="/vegetables" className="hover:text-green-500">
+                    Vegetables
+                  </NavLink>
+                  <NavLink to="/rituals" className="hover:text-green-500">
+                    Rituals
+                  </NavLink>
+                  <NavLink to="/store" className="hover:text-green-500">
+                    Store
+                  </NavLink>
                 </div>
               )}
             </div>
@@ -106,16 +119,32 @@ const Navbar = () => {
             <TbCategory /> All Category
           </NavLink>
           <div className="absolute w-56 p-2 bg-white/20 backdrop-blur-md border border-white/40 rounded-lg hidden shadow-lg group-hover:block z-50">
-          {/* className="p-8 bg-white/30 backdrop-blur-md rounded-lg border border-white/50 shadow-lg" */}
+            {/* className="p-8 bg-white/30 backdrop-blur-md rounded-lg border border-white/50 shadow-lg" */}
             <div className="flex flex-col">
-              <NavLink to='/village-product' className="hover:bg-white/20 hover:backdrop-blur-md hover:border hover:border-white/40 hover:rounded-md hover:p-1">
+              <NavLink
+                to="/village-product"
+                className="hover:bg-white/20 hover:backdrop-blur-md hover:border hover:border-white/40 hover:rounded-md hover:p-1"
+              >
                 Pure village products
               </NavLink>
-              <NavLink to='/sweets' className="hover:bg-white/20 hover:backdrop-blur-md hover:border hover:border-white/40 hover:rounded-md hover:p-1">Sweets</NavLink>
-              <NavLink to='/fruits' className="hover:text-green-500">Fruits</NavLink>
-              <NavLink to='/vegetables' className="hover:text-green-500">Vegetable</NavLink>
-              <NavLink to='/rituals' className="hover:text-green-500">Ritual</NavLink>
-              <NavLink to='/store' className="hover:text-green-500">Store</NavLink>
+              <NavLink
+                to="/sweets"
+                className="hover:bg-white/20 hover:backdrop-blur-md hover:border hover:border-white/40 hover:rounded-md hover:p-1"
+              >
+                Sweets
+              </NavLink>
+              <NavLink to="/fruits" className="hover:text-green-500">
+                Fruits
+              </NavLink>
+              <NavLink to="/vegetables" className="hover:text-green-500">
+                Vegetable
+              </NavLink>
+              <NavLink to="/rituals" className="hover:text-green-500">
+                Ritual
+              </NavLink>
+              <NavLink to="/store" className="hover:text-green-500">
+                Store
+              </NavLink>
             </div>
           </div>
         </div>
@@ -134,12 +163,33 @@ const Navbar = () => {
       </div>
       {/* For user or Login */}
       <div>
-        <Link
-          to="/login"
-          className="flex items-center gap-1 border-2 border-green-500 px-5 py-1 text-lg font-medium rounded-md hover:bg-green-500"
-        >
-          <IoMdLogIn /> Login
-        </Link>
+        {user ? (
+          <div className="relative">
+            <div onClick={()=>setIsClick(!isClick)} className="border-2 border-blue-800 rounded-full">
+              <img
+                src={user?.photoURL}
+                className="w-12 h-12 rounded-full"
+                alt={user?.displayName}
+              />
+            </div>
+            {
+              isClick && <div className="absolute -left-5  flex flex-col gap-2 bg-white/20 backdrop-blur-md border border-white/40 rounded-md p-2 mt-1">
+                <NavLink>Dashboard</NavLink>
+                <NavLink>Profile</NavLink>
+                <NavLink>Logout</NavLink>
+              </div>
+            }
+          </div>
+        ) : (
+          <div>
+            <Link
+              to="/login"
+              className="flex items-center gap-1 border-2 border-green-500 px-5 py-1 text-lg font-medium rounded-md hover:bg-green-500"
+            >
+              <IoMdLogIn /> Login
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

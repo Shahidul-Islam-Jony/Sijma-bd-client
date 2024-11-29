@@ -8,9 +8,12 @@ import { IoIosContact } from "react-icons/io";
 import { IoMdLogIn } from "react-icons/io";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
+  const {user} = useContext(AuthContext);
+  console.log(user);
   const [isOpen, setIsOpen] = useState(false);
   // console.log(isOpen);
   const [isShow, setIsShow] = useState(false);

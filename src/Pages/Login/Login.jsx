@@ -8,7 +8,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
   const [isClicked, setIsClicked] = useState(false);
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, fbSignIn, signIn } = useContext(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -16,6 +16,9 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    signIn(email,password).then(res=>{
+        console.log(res);
+    })
   };
 
   const handleGoogleSignIn = () => {
@@ -23,6 +26,12 @@ const Login = () => {
       console.log(res);
     });
   };
+
+  const handleFbSignIn=()=>{
+    fbSignIn().then(res=>{
+        console.log(res);
+    })
+  }
 
   return (
     <div className="w-[95%] mx-auto">
@@ -83,7 +92,7 @@ const Login = () => {
                   >
                     <FcGoogle /> Google
                   </button>
-                  <button className="hover:bg-blue-800 hover:text-white flex items-center gap-2 border-2 border-blue-500 px-4 py-1 rounded-md font-medium">
+                  <button onClick={handleFbSignIn} className="hover:bg-blue-800 hover:text-white flex items-center gap-2 border-2 border-blue-500 px-4 py-1 rounded-md font-medium">
                     <FaFacebook /> Facebook
                   </button>
                 </div>

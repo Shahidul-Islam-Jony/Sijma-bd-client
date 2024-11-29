@@ -92,7 +92,7 @@ const Registration = ({ setIsClicked }) => {
             </div>
             {/* Left side Register Text */}
             <div className="info-text register">
-                <h2 className="animation" style={{ '--i': 17, '--j': 0 }}>Welcome Back !</h2>
+                <h2 className="animation" style={{ '--i': 17, '--j': 0 }}>Welcome!</h2>
                 <p className="animation" style={{ '--i': 18, '--j': 1 }}>Sign Up for getting full support of Sijma.</p>
             </div>
             {/* <ToastContainer></ToastContainer> */}
